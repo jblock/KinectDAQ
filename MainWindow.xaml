@@ -1,0 +1,56 @@
+﻿<Window x:Class="KinectDAQ.KinectLocalizerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="521" Width="800"
+        Unloaded="Window_Unloaded" Loaded="Window_Loaded">
+    <Window.Resources>
+        <SolidColorBrush x:Key="ThresholdBrush" Color="Black" />
+    </Window.Resources>
+    <StackPanel>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Image Height="240" HorizontalAlignment="Center" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="320" />
+            <Image Height="240" HorizontalAlignment="Center" Name="unTouchedImage" Stretch="Fill" VerticalAlignment="Top" Width="320" />
+            <TextBox Height="23" HorizontalAlignment="Center" Name="textBox1" Width="120" />
+            <CheckBox IsChecked="False" Height="16" Name="isDisplayingVideo" />
+        </StackPanel>
+        <!--<StackPanel>
+            <Rectangle Height="25" Fill="{StaticResource ThresholdBrush}" Margin="10" Name="sliderColor" Stroke="White" Width="100" />
+        </StackPanel>-->
+        <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+            <TextBox Width="60" VerticalAlignment="Center" Text="{Binding ElementName=redSliderMin, Path=Value}" />
+            <Slider TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="10"
+                Value="0" Minimum="0" Maximum="255" Name="redSliderMin" MouseLeave="slider_MouseLeave"
+                VerticalAlignment="Top" Width="100"  MouseDown="slider_MouseDown" ValueChanged="slider_ValueChanged" />
+            <Slider TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="10"
+                Value="250" Minimum="0" Maximum="255" Name="redSliderMax" MouseLeave="slider_MouseLeave" ValueChanged="slider_ValueChanged"
+                    VerticalAlignment="Top" Width="100"  MouseDown="slider_MouseDown"/>
+            <TextBox Width="60" VerticalAlignment="Center" Text="{Binding ElementName=redSliderMax, Path=Value}" />
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+            <TextBox Width="60" VerticalAlignment="Center" Text="{Binding ElementName=greenSliderMin, Path=Value}" />
+            <Slider TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="10"
+                Value="0" Minimum="0" Maximum="255" Name="greenSliderMin" MouseDown="slider_MouseDown" MouseLeave="slider_MouseLeave"  ValueChanged="slider_ValueChanged"
+                VerticalAlignment="Top" Width="100"  />
+            <Slider TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="10"
+                Value="30" Minimum="0" Maximum="255" Name="greenSliderMax"  MouseDown="slider_MouseDown" MouseLeave="slider_MouseLeave"  ValueChanged="slider_ValueChanged"
+                    VerticalAlignment="Top" Width="100"  />
+            <TextBox Width="60" VerticalAlignment="Center" Text="{Binding ElementName=greenSliderMax, Path=Value}" />
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+            <TextBox Width="60" VerticalAlignment="Center" Text="{Binding ElementName=blueSliderMin, Path=Value}" />
+            <Slider TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="10"
+                MouseDown="slider_MouseDown" Value="10" Minimum="0" Maximum="255" Name="blueSliderMin" MouseLeave="slider_MouseLeave"  ValueChanged="slider_ValueChanged"
+                VerticalAlignment="Top" Width="100"  />
+            <Slider TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="10"
+               MouseDown="slider_MouseDown" Value="100" Minimum="0" Maximum="255" Name="blueSliderMax" MouseLeave="slider_MouseLeave"  ValueChanged="slider_ValueChanged"
+                    VerticalAlignment="Top" Width="100"  />
+            <TextBox Width="60" VerticalAlignment="Center" Text="{Binding ElementName=blueSliderMax, Path=Value}" />
+        </StackPanel>
+        <StackPanel>
+            <Button Content="RUN EXPERIMENT" Height="40" Name="button1" Width="180" Click="button1_Click" />
+        </StackPanel>
+        <StackPanel Name="stackPanel1" Width="600">
+            <TextBox Text="Stuff" Name="mStatusDisplay" />
+        </StackPanel>
+    </StackPanel>
+</Window>
